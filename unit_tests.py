@@ -3,36 +3,25 @@ from generatefixtures import main
 
 class TestClass(unittest.TestCase):
     def test_third(self): 
-        with self.assertRaises(SystemExit) as cm:
+        with self.assertRaises(SystemExit) as sys_exit:
             main(['hello.csv'])
-        self.assertEqual(cm.exception.code, 3)
+        self.assertEqual(sys_exit.exception.code, 3)
     def test_fourth(self):
-        with self.assertRaises(SystemExit) as cm:
+        with self.assertRaises(SystemExit) as sys_exit:
             main(['empty_file.csv'])
-        self.assertEqual(cm.exception.code, 4)
+        self.assertEqual(sys_exit.exception.code, 4)
     def test_fifth(self): 
-        with self.assertRaises(SystemExit) as cm:
+        with self.assertRaises(SystemExit) as sys_exit:
             main(['temp.csv', 'test.csv'])
-        self.assertEqual(cm.exception.code, 5)
+        self.assertEqual(sys_exit.exception.code, 5)
     def test_sixth(self): 
-        with self.assertRaises(SystemExit) as cm:
+        with self.assertRaises(SystemExit) as sys_exit:
             main(['one_row.csv'])
-        self.assertEqual(cm.exception.code, 6)
+        self.assertEqual(sys_exit.exception.code, 6)
     def test_sixth_again(self): 
-        with self.assertRaises(SystemExit) as cm:
+        with self.assertRaises(SystemExit) as sys_exit:
             main(['newlines.csv'])
-        self.assertEqual(cm.exception.code, 6)
-    # def test_sixth(self): 
-    #     with self.assertRaises(SystemExit) as cm:
-    #         main(['empty_file.csv'])
-    #     self.assertEqual(cm.exception.code, 5)
-        # self.assertEqual(main(['invalid_file.csv']), 3)
-# 	# check function_to_test
-
-# def test_<name_2>(self):
-# 	# check function_to_test
-# def test_<name_n>(self):
-	# 	# check function_to_test
+        self.assertEqual(sys_exit.exception.code, 6)
 
 if __name__=='__main__':
 	unittest.main()
